@@ -9,7 +9,7 @@ class StudentsDAO {
 		$this->dbManager = $DBMngr;
 	}
 	public function get($id = null) {
-		$sql = "SELECT STDDEV(age), AVG(age)";
+		$sql = "SELECT STDDEV(age) AS Standard_Deviation, AVG(age) AS Average ";
 		$sql .= "FROM students";
 	
 		
@@ -22,7 +22,7 @@ class StudentsDAO {
 	}
 	public function search($str) {
 	
-		$sql = "SELECT AVG(age), STDDEV(age) ";
+		$sql = "SELECT AVG(age) AS Average, STDDEV(age) AS Standard_Deviation ";
 		$sql .= "FROM students INNER JOIN nationalities ON students.id_nationality= nationalities.id ";
 		$sql .= "AND nationalities.description=";
 		$sql .= "'";

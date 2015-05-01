@@ -6,8 +6,18 @@ $app = new \Slim\Slim (); // slim run-time object
 
 require_once "conf/config.inc.php";
 
+function authenticate(\Slim\Route $route)   {
+	$app = \Slim\Slim::getInstance();
+
+ 	$headers= $app->request->headers;
+ 	if($headers["username"] != USERNAME || $headers["password"] != PASSWORD)
+ 		$app->halt(401);
+ 	else
+		return true;
+}
+
 //get students Average and deviation
-$app->map ( "/statistics/students", function () use($app) {
+$app->map ( "/statistics/students", "authenticate", function () use($app) {
 	
 	$httpMethod = $app->request->getMethod ();
 	$action = null;

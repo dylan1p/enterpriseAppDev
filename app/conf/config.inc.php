@@ -15,6 +15,8 @@ define("ACTION_SEARCH_NATIONALITY", 44);
 define("ACTION_GET_TASKS", 55);
 define("ACTION_GET_QUESTIONNAIRES", 56);
 define("ACTION_GET_QUESTIONNAIRE", 57);
+define("USERNAME", 'user');
+define("PASSWORD", 'password');
 
 
 

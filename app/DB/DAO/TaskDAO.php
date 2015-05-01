@@ -9,7 +9,8 @@ class TasksDAO {
 		$this->dbManager = $DBMngr;
 	}
 	public function get($id = null) {
-		$sql = "SELECT COUNT(DISTINCT task_id), STDDEV(duration_mins), AVG(duration_mins)";
+		$sql = "SELECT COUNT(DISTINCT task_id) as No_Of_Tasks, STDDEV(duration_mins) 
+		as Deviation_Duration, AVG(duration_mins) as Average_Duration ";
 		$sql .= "FROM tasks";
 	
 		

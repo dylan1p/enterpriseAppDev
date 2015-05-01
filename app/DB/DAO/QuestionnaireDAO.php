@@ -9,7 +9,8 @@ class QuestionnairesDAO {
 		$this->dbManager = $DBMngr;
 	}
 	public function get($id = null) {
-		$sql = "SELECT COUNT(*), STDDEV(MWL_total), AVG(MWL_total), STDDEV(RSME), AVG(RSME)";
+		$sql = "SELECT COUNT(*) as No_Questionnaires, STDDEV(MWL_total) as Deviation_MWL, AVG(MWL_total)
+		as Average_MWL, STDDEV(RSME) as Deviation_RSME, AVG(RSME) as Average_RSME ";
 		$sql .= "FROM questionnaire";
 		if ($id != null)
 			$sql .= " WHERE task_number=?;";
